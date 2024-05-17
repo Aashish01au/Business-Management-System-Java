@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Department List</title>
+
+</head>
+<body>
+	<th:bolck th:insert="header.html"></th:bolck>
+	<div class="container-fluid ">
+		<div class="card ">
+			<div class="card-header bg-primary text-center text-white">
+				<h2 class="fw-bold">Department Form</h2>
+			</div>
+			<div class="card-body "> 
+		<table>
+			<thead>
+				<tr>
+					<th>Department Name</th>
+						<th>Department (HOD)</th>
+							<th>Department Phone</th>
+								<th>Action</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each=" d : ${dList}"> <!--d = variable/obj ///////dList is calling the data fr0m the form -->
+					<td>[[${d.dept_name}]]</td>
+						<td>[[${d.dept_head}]]</td>
+							<td>[[${d.dept_phone}]]</td>
+								<td>
+								<a th:href="@{/dept/edit(id=${d.id})}">	<input type="submit" value="edit" class="btn btn-success"></a>
+								<a th:href="@{/dept/delete(id=${d.id})}">		<input type="submit" value="delete" class="btn btn-danger"></a>
+								</td>
+				</tr>
+			</tbody>
+			
+		</table>
+			</div>
+			<div class="card-footer text-center bg-dark text-white "> CopyRight@2023</div>
+		</div>
+
+
+
+	</div>
+	
+</body>
+</html>

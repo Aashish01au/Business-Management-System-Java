@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee List form</title>
+
+</head>
+<body>
+		<th:bolck th:insert="header.html"></th:bolck>
+		<div class="container-fluid ">
+		<div class="card ">
+			<div class="card-header bg-primary text-center text-white">
+				<h2 class="fw-bold">Employee List Form</h2>
+			</div>
+			<div class="card-body "> 
+				
+				<div>
+				<a href="/emp/excel"><input type="submit" value="excel" class="btn btn-success text-uppercase" ></a>
+					<a href="/emp/pdf"><input type="submit" value="pdf" class="btn btn-danger text-uppercase" ></a>
+				</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>First Name</th>
+						<th>Last NAme</th>
+							<th>Gender</th>
+							<th>Company</th>
+				<th> Phone </th>
+							<th>Age</th>
+							<th>DOB</th>
+						<th> Joining Date </th>
+							<th>Post</th>
+							<th>Email</th>
+			<!--			<th> Department </th>-->
+						<!--	<th>Salery</th>
+								<th>Country</th>
+						<th> city </th>
+							<th>state</th>
+								<th> ZipCode </th>
+							<th>Project</th>-->
+								<th>Action</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each=" e : ${eList}" > <!--d = variable/obj ///////dList is calling the data fr0m the form -->
+					<td>[[${e.fname}]]</td>
+						<td>[[${e.lname}]]</td>
+							<td>[[${e.gender}]]</td>
+								<td>[[${e.companyName}]]</td>
+				<td>[[${e.phone}]]</td>
+							<td>[[${e.age}]]</td>
+						<td>[[${e.dob}]]</td>
+							<td>[[${e.joinDate}]]</td>
+							<td>[[${e.post}]]</td>
+						<td>[[${e.email}]]</td>
+			<!--				<td>[[${e.department.dept_name}]]</td>-->
+						<!--	<td>[[${e.salery}]]</td>
+							<td>[[${e.address.country}]]</td>
+						<td>[[${e.address.city}]]</td>
+							<td>[[${e.address.state}]]</td>
+								<td>[[${e.address.zipcode}]]</td>
+							<td>[[${e.projects}]]</td>-->
+					
+							
+						
+								<td>
+								<a th:href="@{/emp/edit(id=${e.id})}">	<input type="submit" value="edit" class="btn btn-success"></a>
+								<a th:href="@{/emp/delete(id=${e.id})}">		<input type="submit" value="delete" class="btn btn-danger"></a>
+								</td>
+				</tr>
+			</tbody>
+			
+		</table>
+			</div>
+			<div class="card-footer text-center bg-dark text-white "> CopyRight@2023</div>
+		</div>
+
+
+
+	</div>
+
+
+
+</body>
+</html>

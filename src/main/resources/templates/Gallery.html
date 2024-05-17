@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GAllery Pages</title>
+
+</head>
+
+<body>
+	<th:bolck th:insert="header.html"></th:bolck>
+	<div class="container-fluid m-0 p-0">
+		<div class="card ">
+			<div class="card-header bg-primary text-center ">
+				<h2 class="fw-bold">GAllery Pages</h2>
+			</div>
+			<div class="card-body "> 
+				
+			<span th:each="imgname : ${imgList}">
+				
+				<img class="p-2" width="250" height="250" th:src="@{'/img/'+${imgname}}"> <!--/img/ = location/path-->
+			</span>
+			</div>
+			<div class="card-footer text-center bg-dark text-white m-0"> CopyRight@2023</div>
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>
